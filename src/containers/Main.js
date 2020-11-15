@@ -1,5 +1,3 @@
-//abhishek360
-
 import React, { Component, Suspense } from 'react';
 import imageFile from './../assests/imageLoading.png';
 import {
@@ -32,9 +30,10 @@ class Main extends Component {
   handleScroll = () => {
     const {isLoading} = this.state;
     const {scrollHeight, scrollTop, clientHeight} = document.documentElement;
+    const threshold = Math.floor(clientHeight*0.25);
 
     //console.log(scrollHeight, scrollTop, clientHeight);
-		if(Math.ceil(scrollHeight - scrollTop - clientHeight) <= 100  && !isLoading ){
+		if(Math.ceil(scrollHeight - scrollTop - clientHeight) <= threshold  && !isLoading ){
         this.setState({isLoading: true}, this.fetchData);
     }
 	};
